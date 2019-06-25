@@ -107,7 +107,7 @@ Insert the rows into the created tables (Note, Category, Reminder, User, UserNot
 3. INSERT INTO Category(category_name,category_descr,category_creator) values ('Official','There is a meeting toay at 01:30pm.','Asiyath_01');
 4. INSERT INTO Reminder(reminder_name,reminder_descr,reminder_type,reminder_creator) values('Meeting','Meeting @ 12 AM','Official','Asiyath_01');
 5. INSERT INTO UserNote(note_id,user_id) values(1,'Asiyath_01');
-6. INSERT INTO NoteCategory(note_id,category_id) values (1,2);
+6. INSERT INTO NoteCategory(note_id,category_id) values (1,1);
 7. INSERT INTO NoteReminder(note_id,reminder_id) values (1,1);
 ----------------------------------------------------------------------------------------
 Fetch the row from User table based on Id and Password.
@@ -117,11 +117,12 @@ select * from User where user_id ='Asiyath_01' and user_password = 'password';
 Fetch all the rows from Note table based on the field note_creation_date.
 
 select * from Note order by note_creation_date asc; 
-select * from Note where DATE_FORMAT(note_creation_date,'%Y-%m-%d') = DATE_FORMAT('2018-12-31', '%Y-%m-%d'); 
+select * from Note where DATE_FORMAT(note_creation_date,'%Y-%m-%d') = DATE_FORMAT('2019-06-25', '%Y-%m-%d'); 
 -----------------------------------------------------------------------------------------
 Fetch all the Categories created after the particular Date.
 
 select * from Category where DATE_FORMAT(category_creation_date,'%Y-%m-%d') > DATE_FORMAT('2018-12-30', '%Y-%m-%d');
+select * from NoteCategory
 -----------------------------------------------------------------------------------------
 Fetch all the Note ID from UserNote table for a given User.
 
